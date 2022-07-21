@@ -1,13 +1,30 @@
 import React from 'react'
+import swal from 'sweetalert'
 
 const PacientInfo = ({paciente, setPaciente,deletePatient}) => {
 
   const handleEliminar = () => {
-      const respuesta = confirm('Do you want to delete this patient?')
+       swal({
+        title: "Are you sure?",
+        text: "Once deleted, you will not be able to recover this file!",
+        icon: "warning",
+        buttons: true,
+        dangerMode: true,
+      })
+      .then((willDelete) => {
+        if (willDelete) {
+          swal("Excellent! Your file has been deleted!", {
+            icon: "success",
+          });
+          deletePatient(paciente.id)
+        } else {
+          swal("Your imaginary file is safe!");
+        }
+      });
 
-      if(respuesta){
-        deletePatient(paciente.id)
-      }
+      
+        
+      
   }
   return (
     <div className='mx-5 my-10 bg-white shadow-md px-5 py-10 rounded-xl mt-10'>
