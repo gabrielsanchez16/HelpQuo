@@ -1,7 +1,7 @@
 import PacientInfo from './PacientInfo'
 import { useEffect } from 'react'
 
-const ListPacient = ({pacientes, setPaciente}) => {
+const ListPacient = ({pacientes, setPaciente,deletePatient}) => {
   
 
   
@@ -22,6 +22,7 @@ const ListPacient = ({pacientes, setPaciente}) => {
               key={paciente.id}
               paciente={paciente}
               setPaciente={setPaciente}
+              deletePatient={deletePatient}
               />
           ))}
         </>

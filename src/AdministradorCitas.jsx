@@ -4,11 +4,36 @@ import Headers from './components/Headers'
 import ListPacient from './components/ListPacient'
 import {AiFillLinkedin,AiFillGithub} from 'react-icons/ai'
 import img from './img/gabrielfotoperfil.jpeg'
+import { useEffect } from 'react'
 
 function App() {
   
   const [pacientes, setPacientes] = useState([]);
-  const [paciente, setPaciente] = useState({})
+  const [paciente, setPaciente] = useState({});
+  
+useEffect(() => {
+  const obtenerLS = () => {
+    const pacientesLS = JSON.parse(localStorage.getItem('pacientes')) ?? [];
+
+    setPacientes(pacientesLS)
+  }
+
+  obtenerLS();
+  
+}, [])
+
+  useEffect(() => {
+
+    localStorage.setItem('pacientes', JSON.stringify(pacientes));
+
+  }, [pacientes])
+  
+
+  const deletePatient = (id)=>{
+
+    const pacientesActualizados = pacientes.filter(paciente => paciente.id != id);
+    setPacientes(pacientesActualizados);
+  }
 
   return (
     <>
@@ -26,6 +51,7 @@ function App() {
           pacientes={pacientes}
           paciente={paciente}
           setPaciente={setPaciente}
+          deletePatient={deletePatient}
           />
         </div>
         
