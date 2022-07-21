@@ -95,7 +95,7 @@ const Form = ({ pacientes,setPacientes, paciente, setPaciente }) => {
         {error && <Error mensaje='Todos los campos son obligatorios'/>
 
         }
-        <div className="mb-3">
+        <div id="PET-NAME" className="mb-3">
           <label
             htmlFor="name-pet"
             className="block text-gray-700 uppercase font-bold"

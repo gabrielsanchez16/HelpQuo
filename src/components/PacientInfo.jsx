@@ -44,13 +44,16 @@ const PacientInfo = ({paciente, setPaciente,deletePatient}) => {
         <span className='font-normal normal-case'>{paciente.symptom}</span>
       </p>
       <div className='flex justify-between mt-10'>
-        <button 
+        <a href="#PET-NAME">
+          <button 
           type='button'
           className='py-2 px-10  bg-indigo-600 hover:bg-indigo-700 text-white font-bold rounded-lg'
           onClick={() => setPaciente(paciente)}
           >
             Edit
         </button>
+        </a>
+        
         <button 
           type='button' 
           className='py-2 px-10 bg-red-600 hover:bg-red-700 text-white font-bold rounded-lg'
